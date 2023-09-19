@@ -91,7 +91,10 @@ const Disperse = () => {
 
     return (
     <div className="h-full flex flex-col gap-5 min-w-[475px]">
-        <NumberedTextarea setText={setText} text={text}  />
+        <div>
+            <NumberedTextarea setText={setText} text={text}  />
+            <div className="text-left text-gray-500">Separated by ',' or '' or =</div>
+        </div>
         {Object.keys(duplicateAddressDict).length > 0 && (
             <div className="flex-1 flex justify-between text-red-600">
                 <div>Duplicate</div>
