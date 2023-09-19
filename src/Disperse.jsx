@@ -53,6 +53,10 @@ const Disperse = () => {
     const keepTheFirstOne = () => {
         const tempDict = {};
         const textArray = text.split('\n').filter((item) => {
+            // Skip blank line
+            if(!item) { 
+                return false;
+            }
             const delimiter = item[item.search(DELIMITER)];
             const [a] = item.split(delimiter);
             if(duplicateAddressDict[a] && tempDict[a]) {
@@ -68,6 +72,10 @@ const Disperse = () => {
     const combineBalance = () => {
         const tempDict = {};
         text.split('\n').forEach((item) => {
+            // Skip blank line
+            if(!item) { 
+                return;
+            }
             const delimiter = item[item.search(DELIMITER)];
             const [a, amount] = item.split(delimiter);
             if(!tempDict[a]) {
